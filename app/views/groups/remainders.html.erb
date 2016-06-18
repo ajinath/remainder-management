@@ -1,0 +1,35 @@
+<div class =""> 
+  <h1 class = "title">Listing Remainders</h1>
+  <table class= "table table-bordered table-responsive wrapper">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Remainder time</th>
+        <th>Schedule interval</th>
+        <th>Message</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @remainders.each do |remainder| %>
+        <tr>
+          <td><%= remainder.name %></td>
+          <td><%= remainder.start_date %></td>
+          <td><%= remainder.end_date %></td>
+          <td><%= remainder.remainder_time %></td>
+          <td><%= remainder.schedule_interval %></td>
+          <td><%= remainder.message %></td>
+          <td><%= link_to show_icon, group_remainder_path(@group, remainder)  %></td>
+          <td><%= link_to edit_icon, edit_group_remainder_path(@group, remainder) %></td>
+          <td><%= link_to delete_icon, group_remainder_path(@group, remainder), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= link_to 'New Remainder', new_group_remainder_path(@group), class: "btn btn-success" %>
+  </div>
+</div>

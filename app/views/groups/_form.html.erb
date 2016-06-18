@@ -1,0 +1,23 @@
+<%= nested_form_for(@group, html: { class: "form-horizontal"} )do |f| %>
+  <div class="form-group"> 
+    <div class="col-sm-12">
+      <%= f.text_field :name, :class => "form-control",  placeholder: "Enter Group name"%>
+    </div>
+  </div>
+  <%= f.fields_for :members do |ff| %>
+    <div class="form-group"> 
+      <div class="col-sm-5">
+        <%= ff.text_field :name, :class => "form-control",  placeholder: "Enter Member name"%>
+      </div>
+      <div class="col-sm-5">
+       <%= ff.text_field :contact, :class => "form-control",  placeholder: "Enter Contact number"%>
+      </div>
+      <div class="col-sm-2">
+         <%= ff.link_to_remove "Remove", class: "btn btn-danger form-control"%>
+      </div>
+    </div>
+  <% end %>
+     
+  <%= f.link_to_add "Add Member", :members, class: "btn btn-warning pull-right"%>
+  <%= f.submit class: "btn btn-success"%> 
+<% end %> 
