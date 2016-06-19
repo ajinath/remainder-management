@@ -1,23 +1,60 @@
 <%= nested_form_for(@group, html: { class: "form-horizontal"} )do |f| %>
   <div class="form-group"> 
-    <div class="col-sm-12">
+    <div class="col-sm-6">
+      <%= f.label :name %>
+    </div>
+    <div class="col-sm-6">
       <%= f.text_field :name, :class => "form-control",  placeholder: "Enter Group name"%>
     </div>
   </div>
-  <%= f.fields_for :members do |ff| %>
+
+  <div class="form-group"> 
+    <div class="col-sm-6">
+      <%= f.label :contact %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.text_field :contact, :class => "form-control",  placeholder: "Enter Contact no"%>
+    </div>
+  </div>
+
+  <%= f.fields_for :remainders do |ff| %>
     <div class="form-group"> 
-      <div class="col-sm-5">
-        <%= ff.text_field :name, :class => "form-control",  placeholder: "Enter Member name"%>
+      <div class="col-sm-6">
+        <%= ff.label "Select Start Date" %>
       </div>
-      <div class="col-sm-5">
-       <%= ff.text_field :contact, :class => "form-control",  placeholder: "Enter Contact number"%>
+      <div class="col-sm-6">
+        <%= ff.text_field :start_date, :class => "form-control",  placeholder: "Enter Start date"%>
       </div>
-      <div class="col-sm-2">
-         <%= ff.link_to_remove "Remove", class: "btn btn-danger form-control"%>
+    </div>
+
+    <div class="form-group"> 
+      <div class="col-sm-6">
+        <%= ff.label "Select Event Remainder days", :class => "datetimepicker",  placeholder: "Select Remainder Time"%>
+      </div>
+      <div class="col-sm-6">
+        <%= ff.select :schedule_interval,["30","40","50","60","70","80","90","100","110","120","130","140","150"],{prompt:"Select schedule interval in days"},class: "form-control"%>
       </div>
     </div>
   <% end %>
-     
-  <%= f.link_to_add "Add Member", :members, class: "btn btn-warning pull-right"%>
-  <%= f.submit class: "btn btn-success"%> 
+
+  <div class="form-group"> 
+    <div class="col-sm-6">
+      <%= f.label "Template" %>
+    </div>
+    <div class="col-sm-6">
+        <%= f.select :contact,["SMS Template","Email Template","None"],{prompt:"Select SMS  Template "}, class: "form-control"%>
+      </div>
+  </div>
+
+  <div class="form-group"> 
+    <div class="col-sm-6">
+      <%= f.label "SMS text" %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.text_area :contact, :class => "form-control",  placeholder: "Enter SMS "%>
+    </div>
+  </div>
+  
+  <%= f.submit class: "btn btn-success pull-right"%> 
+
 <% end %> 

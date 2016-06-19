@@ -1,7 +1,7 @@
 class Admin::UsersController < AdminController
-  before_action :set_admin_user, only: [:show, :destroy]
+  before_action :set_admin_user, only: [:show, :destroy, :approve, :reject]
   def index
-    @users = User.all
+    @users = User.order_by_created_at
   end
 
   def show
@@ -14,6 +14,16 @@ class Admin::UsersController < AdminController
       format.html { redirect_to admin_users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def approve
+    @user.update(status: 'approved')
+    @users = User.order_by_created_at
+  end
+
+  def reject
+    @user.update(status: 'blocked')
+    @users = User.order_by_created_at
   end
 
   private

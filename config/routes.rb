@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  devise_for :admins
   devise_for :users ,:controllers => { :registrations => "registrations" }
   
   resources :templates
@@ -12,11 +14,16 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :users, only: [:index, :show, :destroy] do
-      resources :groups do
-        resources :remainders 
-        resources :members
-      end
-    end  
+      member do
+        get :approve
+        get :reject
+      end 
+    end
+    #   resources :groups do
+    #     resources :remainders 
+    #     resources :members
+    #   end
+    # end  
   end
 
   get '/admin' => 'admin/pages#index'

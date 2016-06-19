@@ -1,3 +1,5 @@
+//= require jquery
+//= require jquery_ujs
 //= require admin/jQuery-2.1.4.min
 //= require admin/jquery-ui.min
 //= require admin/bootstrap.min

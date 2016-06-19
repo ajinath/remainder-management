@@ -1,0 +1,26 @@
+<table class="table table-condensed user">
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Contact</th>
+    <th> Joining date </th>
+    <th> Status</th>
+    <th> #Action </th>
+  </tr>
+
+  <% @users.each_with_index do |user, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= user.name.try(:capitalize) %></td>
+    <td><%= user.email %></td>
+    <td><%= user.mobile_no %></td>
+    <td><%= user.created_at.try(:strftime, "%d %B %Y - %l:%M %p") %></td>
+    <td><span class="<%= status_class user.status %>"><%= user.status.try(:capitalize) %></span></td>
+    <td>
+      <%= link_to 'Block', reject_admin_user_path(user), class: "badge bg-red", remote: true %>
+      <%= link_to 'Approve', approve_admin_user_path(user), class: "badge bg-green", remote: true  %>
+    </td>
+  </tr>
+  <% end %>
+</table>  

@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RemainderManagement</title>
-    <%= stylesheet_link_tag  'admin', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-     <div>
-      <% if alert %>
-        <div class= "alert alert-danger text-center">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <%= alert %>
-        </div>
-      <% end %>
-      <%= yield %>
+<head>
+  <title>RemainderManagement</title>
+  <%= stylesheet_link_tag  'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <%= render 'layouts/menu' %>
+      <%= yield %> 
     </div>
   </body>
-</html>
+  </html>

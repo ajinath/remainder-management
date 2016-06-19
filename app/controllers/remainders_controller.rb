@@ -1,5 +1,5 @@
 class RemaindersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_remainder, only: [:show, :edit, :update, :destroy]
   before_action :set_group, only: [:create, :update, :destroy, :new]
 
