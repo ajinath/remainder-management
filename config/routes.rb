@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  # namespace :admin do
+  #   get 'admin/update_profile'
+  # end
+
   devise_for :admins
   devise_for :users ,:controllers => { :registrations => "registrations" }
   
@@ -13,11 +17,16 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
+    get "/profile" => "pages#profile"
     resources :users, only: [:index, :show, :destroy] do
       member do
         get :approve
         get :reject
       end 
+    end
+
+    resources :admin, only: [:update_profile] do 
+      put :update_profile, on: :member, as: :update_profile
     end
     #   resources :groups do
     #     resources :remainders 

@@ -16,10 +16,10 @@
       <ul class="nav navbar-nav">
         <!-- Messages: style can be found in dropdown.less-->
         <li class="dropdown messages-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+         <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-envelope-o"></i>
             <span class="label label-success">4</span>
-          </a>
+          </a> -->
           <ul class="dropdown-menu">
             <li class="header">You have 4 messages</li>
             <li>
@@ -92,15 +92,15 @@
         </li>
         <!-- Notifications: style can be found in dropdown.less -->
         <li class="dropdown notifications-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+         <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-bell-o"></i>
             <span class="label label-warning">10</span>
-          </a>
+          </a> -->
           <ul class="dropdown-menu">
-            <li class="header">You have 10 notifications</li>
-            <li>
+           <!--  <li class="header">You have 10 notifications</li>
+            <li> -->
               <!-- inner menu: contains the actual data -->
-              <ul class="menu">
+              <!-- <ul class="menu">
                 <li>
                   <a href="#">
                     <i class="fa fa-users text-aqua"></i> 5 new members joined today
@@ -126,17 +126,17 @@
                     <i class="fa fa-user text-red"></i> You changed your username
                   </a>
                 </li>
-              </ul>
+              </ul> -->
             </li>
             <li class="footer"><a href="#">View all</a></li>
           </ul>
         </li>
         <!-- Tasks: style can be found in dropdown.less -->
         <li class="dropdown tasks-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+         <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-flag-o"></i>
             <span class="label label-danger">9</span>
-          </a>
+          </a> -->
           <ul class="dropdown-menu">
             <li class="header">You have 9 tasks</li>
             <li>
@@ -204,16 +204,16 @@
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="/assets/admin/user2-160x160.jpg" class="user-image" alt="User Image">
-            <span class="hidden-xs">Alexander Pierce</span>
+            <!--img src="/assets/admin/user2-160x160.jpg" class="user-image" alt="User Image"> -->
+            <span class="hidden-xs"> <%= current_admin.name %></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
               <img src="/assets/admin/user2-160x160.jpg" class="img-circle" alt="User Image">
               <p>
-                Alexander Pierce - Web Developer
-                <small>Member since Nov. 2012</small>
+                <%= current_admin.name %>
+                <!-- <small>Member since Nov. 2012</small> -->
               </p>
             </li>
             <!-- Menu Body -->
@@ -231,7 +231,7 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                <a href="<%= admin_profile_path %>" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
                 <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-default btn-flat' %>
@@ -252,7 +252,7 @@
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
     <!-- Sidebar user panel -->
-    <div class="user-panel">
+    <!-- <div class="user-panel">
       <div class="pull-left image">
         <img src="/assets/admin/user2-160x160.jpg" class="img-circle" alt="User Image">
       </div>
@@ -260,7 +260,7 @@
         <p>Alexander Pierce</p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
-    </div>
+    </div> -->
     <!-- search form -->
    <!--  <form action="#" method="get" class="sidebar-form">
       <div class="input-group">
@@ -279,8 +279,8 @@
           <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Pending Brands</a></li>
-          <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+          <li class="active"><a href="<%= admin_path %>"><i class="fa fa-circle-o"></i> Pending Brands</a></li>
+          <!-- <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> -->
         </ul>
       </li>
      <!--  <li class="treeview">
@@ -340,7 +340,7 @@
           <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
         </ul>
       </li> -->
-      <li class="treeview">
+     <!--  <li class="treeview">
         <a href="#">
           <i class="fa fa-table"></i> <span>Tables</span>
           <i class="fa fa-angle-left pull-right"></i>
@@ -377,7 +377,7 @@
           <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
           <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
         </ul>
-      </li>
+      </li> -->
      <!--  <li class="treeview">
         <a href="#">
           <i class="fa fa-share"></i> <span>Multilevel</span>
