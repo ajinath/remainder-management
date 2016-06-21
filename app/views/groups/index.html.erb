@@ -1,4 +1,8 @@
-<div class="">
+<h4> comming soon ... </h4>
+
+
+<%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-default btn-flat' %>
+<!-- <div class="">
   <h1 class = "title">Listing Groups</h1>
   <table id="groups" class="table table-bordered wrapper">
     <thead>
@@ -10,18 +14,19 @@
       </tr>
     </thead>
     <tbody>
-      <% @groups.each do |group| %>
+      <%# @groups.each do |group| %>
       <tr>
-        <td><%= link_to group.name.titleize, remainders_group_path(group) %></td>
-        <td><%= group.status %></td>
-        <td><%= link_to edit_icon, edit_group_path(group) %></td>
-        <td><%= link_to delete_icon, group, method: :delete, data: { confirm: 'Are you sure?'} %>
+        <td><%#= link_to group.name.titleize, remainders_group_path(group) %></td>
+        <td><%#= group.status %></td>
+        <td><%#= link_to edit_icon, edit_group_path(group) %></td>
+        <td><%#= link_to delete_icon, group, method: :delete, data: { confirm: 'Are you sure?'} %>
         </td>
       </tr>
-      <% end %>
+      <%# end %>
     </tbody>
   </table>
   <div class="text-center">
-    <%= link_to "Create New Group", new_group_path, class: "btn btn-success" %>
+    <%#= link_to "Create New Group", new_group_path, class: "btn btn-success" %>
   </div>
 </div>
+ -->
