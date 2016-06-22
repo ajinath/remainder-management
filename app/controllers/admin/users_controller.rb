@@ -1,5 +1,5 @@
 class Admin::UsersController < AdminController
-  before_action :set_admin_user, only: [:show, :destroy, :approve, :reject]
+  before_action :set_admin_user, only: [:show, :destroy, :approve, :reject, :update_profile]
   def index
     @users = User.order_by_created_at
   end
@@ -26,8 +26,17 @@ class Admin::UsersController < AdminController
     @users = User.order_by_created_at
   end
 
+  def update_profile
+    @user.update(admin_param)
+    binding.pry
+    redirect_to admin_path
+  end
+
   private
     def set_admin_user
       @user = User.find(params[:id])
+    end
+    def admin_param
+      params.require(:admin).permit(:name, :email, :mobile_no)
     end
 end
