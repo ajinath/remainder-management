@@ -71,6 +71,6 @@ class TemplatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_params
-      params.require(:template).permit(:name, :message)
+      params.require(:template).permit(:name, :message, :user_id)
     end
 end
