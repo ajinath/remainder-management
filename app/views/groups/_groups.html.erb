@@ -1,19 +1,23 @@
-<table id="groups" class="table table-bordered wrapper">
+<table id="groups" class="table table-condensed">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Status</th>
-      <th>Action</th>
-      <th>Action</th>
+      <th> Start Date </th>
+      <th> Interval </th>
+      <th> Status</th>
+      <th> Action</th>
+     <!--  <th> Action</th> -->
     </tr>
   </thead>
   <tbody>
     <% @groups.each do |group| %>
     <tr>
-      <td><%= link_to group.name.titleize, admin_user_group_path(@user, group) %></td>
+      <td><%= link_to group.name.titleize, group_path(group) %></td>
+       <td><%= group.start_date %></td>
+        <td><%= group.interval %></td>
       <td><%= group.status %></td>
-      <td><%= link_to edit_icon, edit_group_path(group) %></td>
-      <td><%= link_to delete_icon, group, method: :delete, data: { confirm: 'Are you sure?'} %>
+      <td><%= link_to "Edit", edit_group_path(group), class: "badge bg-green" %></td>
+      <!-- <td><%#= link_to delete_icon, group, method: :delete, data: { confirm: 'Are you sure?'} %> -->
       </td>
     </tr>
     <% end %>

@@ -1,10 +1,10 @@
 <header class="main-header">
   <!-- Logo -->
-  <a href="index2.html" class="logo">
+    <a href="<%= home_path %>" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>Admin</b></span>
+    <span class="logo-mini"><b>User</b></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Admin</b></span>
+    <span class="logo-lg"><b>User</b></span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top" role="navigation">
@@ -205,14 +205,14 @@
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <!--img src="/assets/admin/user2-160x160.jpg" class="user-image" alt="User Image"> -->
-            <span class="hidden-xs"> <%= current_admin.name %></span>
+            <span class="hidden-xs"> <%= current_user.name %></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
               <img src="/assets/admin/user2-160x160.jpg" class="img-circle" alt="User Image">
               <p>
-                <%= current_admin.name %>
+                <%= current_user.name %>
                 <!-- <small>Member since Nov. 2012</small> -->
               </p>
             </li>
@@ -234,7 +234,7 @@
                 <a href="<%= admin_profile_path %>" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
-                <%= link_to "Sign out", destroy_admin_session_path, method: :delete, class: 'btn btn-default btn-flat' %>
+                <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-default btn-flat' %>
               </div>
             </li>
           </ul>
@@ -279,8 +279,10 @@
           <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a href="<%= admin_path %>"><i class="fa fa-circle-o"></i> Pending Brands</a></li>
-          <!-- <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> -->
+          <li><a href="<%= groups_path %>"><i class="fa fa-folder"></i> Groups </a></li>
+          <li><a href="<%= templates_path %>"><i class="fa fa-book"></i> Templates </a></li>
+          <li><a href="<%= members_path %>"><i class="fa fa-users"></i> Members </a></li>
+           <!-- <li><a href="index2.html"><i3 class="fa fa-circle-o"></i> Dashboard v2</a></li>
         </ul>
       </li>
      <!--  <li class="treeview">

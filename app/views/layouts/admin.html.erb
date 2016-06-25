@@ -9,8 +9,11 @@
 <body>
   <div class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-      <%= render 'layouts/menu' %>
-      <%= yield %> 
+      <%= render menu %>
+      <div class="content-wrapper">
+        <%= yield %> 
+      </div>
     </div>
-  </body>
-  </html>
+  </div>
+</body>
+</html>

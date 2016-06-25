@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
+  layout 'admin'
   before_action :set_group, only: [:show, :edit, :update, :destroy, :remainders]
 
   # GET /groups
@@ -11,12 +12,14 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    # current_admin = Admin.first
+    # sign_in current_admin
   end
 
   # GET /groups/new
   def new
-    @group = Group.new #current_user.groups.build
-    @group.remainders.build
+    @group = current_user.groups.build
+    # @group.remainders.build
   end
 
   # GET /groups/1/edit
@@ -26,7 +29,7 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = current_user.groups.build(group_params)
+    @group = Group.new(group_params)
     respond_to do |format|
       if @group.save
         format.html { redirect_to groups_path, notice: 'Group was successfully created.' }
@@ -74,6 +77,7 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through. members_attributes
     def group_params
-      params.require(:group).permit(:name, :contact, :status, :user_id, members_attributes: [:id, :name, :contact, :group_id, :_destroy])
+      params[:group][:members] = params[:group][:members].reject(&:empty?)
+      params.require(:group).permit(:name, :start_date, :time_stamp, :interval, :status, :user_id, :template_id, members: [] )
     end
 end

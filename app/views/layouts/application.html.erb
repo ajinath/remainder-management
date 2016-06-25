@@ -7,15 +7,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%#= render 'layouts/navbar'%>
-    <div class ="container">
-      <% if alert %>
-        <div class= "alert alert-danger text-center">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <%= alert %>
-        </div>
-      <% end %>
-      <%= yield %>
-    </div>
+    <!-- <div class="hold-transition skin-blue sidebar-mini"> -->
+      <div class="wrapper">
+        <%= yield %> 
+      </div>
+    <!-- </div> -->
   </body>
 </html>

@@ -10,7 +10,6 @@
 //= require admin/jquery-jvectormap-world-mill-en
 //= require admin/jquery.knob
 //= require admin/moment.min
-//= require admin/daterangepicker
 //= require admin/bootstrap-datepicker
 //= require admin/bootstrap3-wysihtml5.all
 //= require admin/jquery.slimscroll.min
@@ -18,3 +17,7 @@
 //= require admin/app.min
 //= require admin/dashboard
 //= require admin/demo
+//= require admin/select2.full.min
+//= require jquery_nested_form
+//= require admin/bootstrap-timepicker.min
+

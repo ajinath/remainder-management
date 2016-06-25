@@ -1,60 +1,75 @@
-<%= nested_form_for(@group, html: { class: "form-horizontal"} )do |f| %>
-  <div class="form-group"> 
-    <div class="col-sm-6">
-      <%= f.label :name %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.text_field :name, :class => "form-control",  placeholder: "Enter Group name"%>
-    </div>
-  </div>
-
-  <div class="form-group"> 
-    <div class="col-sm-6">
-      <%= f.label :contact %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.text_field :contact, :class => "form-control",  placeholder: "Enter Contact no"%>
-    </div>
-  </div>
-
-  <%= f.fields_for :remainders do |ff| %>
-    <div class="form-group"> 
-      <div class="col-sm-6">
-        <%= ff.label "Select Start Date" %>
-      </div>
-      <div class="col-sm-6">
-        <%= ff.text_field :start_date, :class => "form-control",  placeholder: "Enter Start date"%>
-      </div>
-    </div>
-
-    <div class="form-group"> 
-      <div class="col-sm-6">
-        <%= ff.label "Select Event Remainder days", :class => "datetimepicker",  placeholder: "Select Remainder Time"%>
-      </div>
-      <div class="col-sm-6">
-        <%= ff.select :schedule_interval,["30","40","50","60","70","80","90","100","110","120","130","140","150"],{prompt:"Select schedule interval in days"},class: "form-control"%>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="form-group"> 
-    <div class="col-sm-6">
-      <%= f.label "Template" %>
-    </div>
-    <div class="col-sm-6">
-        <%= f.select :contact,["SMS Template","Email Template","None"],{prompt:"Select SMS  Template "}, class: "form-control"%>
-      </div>
-  </div>
-
-  <div class="form-group"> 
-    <div class="col-sm-6">
-      <%= f.label "SMS text" %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.text_area :contact, :class => "form-control",  placeholder: "Enter SMS "%>
-    </div>
-  </div>
+<%= form_for(@group, html: { class: "form-horizontal"} )do |f| %>
   
-  <%= f.submit class: "btn btn-success pull-right"%> 
+  <div class="form-group">
+    <%= f.label "Group Name", class: "control-label col-xs-3"%>
+    <div class="col-xs-6">
+      <%= f.text_field :name, :class => "form-control",  placeholder: "Enter Group name"%>
+    </div>  
+  </div>
 
+  <div class="form-group">
+    <%= f.label "Select Start Date", class: "control-label col-xs-3"%>
+    <div class="col-xs-3">
+      <div class="input-group date">
+        <div class="input-group-addon">
+          <i class="fa fa-calendar"></i>
+        </div>
+        <%= f.text_field :start_date, class: "form-control pull-right",  placeholder: "Select Start Date", id: "datepicker" %>
+      </div>
+    </div>
+    <div class = "col-xs-3">
+      <div class="input-group">
+        <%= f.text_field :time_stamp, class: "form-control timepicker" %>
+        <div class="input-group-addon">
+          <i class="fa fa-clock-o"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Schedule Event days", class: "control-label col-xs-3"%>
+    <div class="col-xs-6">
+      <%= f.select :interval, options_for_select(Group::INTERVAL), {}, 
+      { class: "form-control", data: { placeholder: "Select SMS template"} }   %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Select Template", class: "control-label col-xs-3"%>
+    <div class="col-xs-6">
+     <%= f.select :template_id, options_for_select(@group.option_templates), {}, { class: "form-control", data: { placeholder: "Select SMS template"} }   %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Members", class: "control-label col-xs-3"%>
+    <div class="col-md-6">
+
+    <%= f.select :members, options_for_select(@group.option_members, 
+      selected: @group.selected_members), {}, 
+      { class: "form-control select2", multiple: 'multiple', data: { placeholder: "Select Members to add in group"} }   %>
+    </div>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div class="text-center">
+    <%= f.submit class: "btn btn-success" %>
+  </div>
+  <br>
 <% end %> 
+
+<script type="text/javascript">
+ // $(document).ready(function(){
+  $(".select2").select2();
+
+  $('#datepicker').datepicker({
+    autoclose: true,
+     format: 'dd-mm-yyyy'
+  });
+  $(".timepicker").timepicker({
+    // showInputs: false
+  });
+// });
+</script>

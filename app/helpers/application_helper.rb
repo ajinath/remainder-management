@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def menu
+  	current_admin.present? ? "layouts/admin_menu" : "layouts/user_menu"
+  end
+
   def edit_icon
    raw("<span class ='badge icon-pad info-bg'><i class='fa fa-pencil fa-1x'></i>&nbsp; Edit</span>").html_safe 
   end

@@ -1,41 +1,41 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Templates</h1>
-
-<table class= "table table-bordered wrapper">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Message</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @templates.each do |template| %>
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Templates</h3>
+    <%= link_to 'New Template', new_template_path, style: "float: right", class: "btn btn-success btn-sm" %>
+  </div>
+  <div class="box-body no-padding users">
+    <table class= "table table-condensed">
+    <thead>
       <tr>
-        <td><%= template.name %></td>
-        <td><%= template.message %></td>
-        <td>
-          <%= link_to template  do %>
-            <%= show_icon %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to edit_template_path(template) do %>
-            <%= edit_icon %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to template, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <%= delete_icon %>
-          <% end %>
-          </td>
+        <th>Name</th>
+        <th>Message</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Template', new_template_path %>
+    <tbody>
+      <% @templates.each do |template| %>
+        <tr>
+          <td><%= template.name %></td>
+          <td><%= template.message %></td>
+          <!-- <td>
+            <%#= link_to template  do %>
+              <%#= show_icon %>
+            <%# end %>
+          </td> -->
+          <td>
+            <%= link_to edit_template_path(template), class: "badge bg-green" do %>
+              <%= "Edit" %>
+            <% end %>
+          </td>
+          <!-- <td>
+            <%#= link_to template, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <%#= delete_icon %>
+            <%# end %>
+            </td> -->
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
+</div>
