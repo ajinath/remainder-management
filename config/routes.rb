@@ -10,7 +10,13 @@ Rails.application.routes.draw do
       get 'remainders'
     end
   end
-  resources :members
+  
+  get "mass_sms/import_csv" => "members#import_csv"
+  resources :members do 
+    collection do
+      post :import
+    end
+  end
   
   namespace :admin do
     get "/profile" => "pages#profile"

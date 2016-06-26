@@ -6,7 +6,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    @members = current_user.members
   end
 
   # GET /members/1
@@ -63,9 +63,30 @@ class MembersController < ApplicationController
     end
   end
 
+  def import_csv
+  end
+
+  def import
+   # binding.pry
+    if params[:file]
+      user_id = current_user.id
+      members = Member.import(params[:file], user_id)
+      if members
+        redirect_to members_path, notice: 'CSV imported successfully'
+      else
+        redirect_to mass_sms_import_csv_path, notice: 'Invalid CSV'
+      end
+    else
+      render :import_csv, notice: 'Please Select CSV file'
+      # redirect_to mass_sms_import_csv_path, notice: 'Please Select CSV file'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member
+      binding.pry
+
       @member = Member.find(params[:id])
     end
 

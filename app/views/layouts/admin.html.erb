@@ -11,9 +11,23 @@
     <div class="wrapper">
       <%= render menu %>
       <div class="content-wrapper">
-        <%= yield %> 
+      <% if flash[:notice] %>
+        <div class= "alert alert-success text-center custom-alert">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;
+          </a>
+          <%= flash[:notice] %>
+        </div> 
+      <% end %>
+      <%= yield %> 
       </div>
     </div>
   </div>
 </body>
 </html>
+
+<style type="text/css">
+.custom-alert {
+  margin: 0;
+  padding: 5px;
+}
+</style>

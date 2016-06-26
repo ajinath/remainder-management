@@ -274,31 +274,50 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li class="header">MAIN NAVIGATION</li>
-      <li class="active treeview">
+      <li class="treeview active">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+          <i class="fa fa-home"></i> 
+          <span>Home</span> 
+          <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<%= groups_path %>"><i class="fa fa-folder"></i> Groups </a></li>
-          <li><a href="<%= templates_path %>"><i class="fa fa-book"></i> Templates </a></li>
-          <li><a href="<%= members_path %>"><i class="fa fa-users"></i> Members </a></li>
-           <!-- <li><a href="index2.html"><i3 class="fa fa-circle-o"></i> Dashboard v2</a></li>
+          <li>
+            <a href="<%= home_path %>"><i class="fa fa-search"></i> Quick Search </a>
+          </li>       
         </ul>
       </li>
-     <!--  <li class="treeview">
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-dashboard"></i> 
+          <span>Dashboard</span> 
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="<%= groups_path %>"><i class="fa fa-folder"></i> Groups </a>
+          </li>
+          <li>
+            <a href="<%= templates_path %>"><i class="fa fa-book"></i> Templates </a>
+          </li>
+          <li>
+            <a href="<%= members_path %>"><i class="fa fa-users"></i> Members </a>
+          </li>         
+        </ul>
+      </li>
+      <li class="treeview">
         <a href="#">
           <i class="fa fa-files-o"></i>
-          <span>Layout Options</span>
-          <span class="label label-primary pull-right">4</span>
+          <span>Mass SMS </span>
+          <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-          <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-          <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-          <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+          <li>
+            <a href="<%= mass_sms_import_csv_path %>"><i class="fa fa-circle-o"></i> Import CSV</a>
+          </li>
         </ul>
       </li>
-      <li>
+      <!-- <li> -->
+      <!--
         <a href="pages/widgets.html">
           <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
         </a>

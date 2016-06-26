@@ -11,4 +11,5 @@
 *= require admin/bootstrap3-wysihtml5.min
 *= require admin/select2.min
 *= require admin/bootstrap-timepicker.min
+*= require admin/daterangepicker-bs3 
 */

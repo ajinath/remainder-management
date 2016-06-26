@@ -1,0 +1,10 @@
+<%= form_tag import_members_path(current_user), multipart: true do %>
+	<div class="form-group">
+		<div class="col-xs-6">
+				<%= file_field_tag :file, class: "control-label" %>
+		</div>    
+    <div class="col-xs-6">
+			<%= submit_tag "Import CSV", class: "btn btn-success btn-sm"  %>
+    </div> 
+  </div>
+<% end %>
