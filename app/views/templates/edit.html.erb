@@ -1,6 +1,9 @@
-<h1>Editing Template</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @template %> |
-<%= link_to 'Back', templates_path %>
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title">Update Template</h3>
+		<%= link_to 'New Template', new_template_path, style: "float: right", class: "btn btn-success btn-sm" %>
+	</div>
+	<div class="box-body no-padding users">
+		<%= render 'form' %>
+	</div>
+</div>

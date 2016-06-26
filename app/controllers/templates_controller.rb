@@ -1,10 +1,13 @@
 class TemplatesController < ApplicationController
+  layout 'admin'
+  before_action :authenticate_user!
   before_action :set_template, only: [:show, :edit, :update, :destroy]
 
   # GET /templates
   # GET /templates.json
   def index
-    @templates = Template.all
+    @templates = current_user.templates
+    #Template.all
   end
 
   # GET /templates/1
@@ -28,7 +31,7 @@ class TemplatesController < ApplicationController
 
     respond_to do |format|
       if @template.save
-        format.html { redirect_to @template, notice: 'Template was successfully created.' }
+        format.html { redirect_to templates_path, notice: 'Template was successfully created.' }
         format.json { render :show, status: :created, location: @template }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class TemplatesController < ApplicationController
   def update
     respond_to do |format|
       if @template.update(template_params)
-        format.html { redirect_to @template, notice: 'Template was successfully updated.' }
+        format.html { redirect_to templates_path, notice: 'Template was successfully updated.' }
         format.json { render :show, status: :ok, location: @template }
       else
         format.html { render :edit }
@@ -69,6 +72,6 @@ class TemplatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_params
-      params.require(:template).permit(:name, :message)
+      params.require(:template).permit(:name, :message, :user_id)
     end
 end

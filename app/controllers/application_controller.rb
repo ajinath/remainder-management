@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   		when "Admin"
   			session['admin_return_to'] = admin_path
   		when "User"
-  			session['user_return_to'] = groups_path
+  			session['user_return_to'] = home_path
   	end
   end
 end

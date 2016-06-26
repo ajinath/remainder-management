@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   
-  # namespace :admin do
-  #   get 'admin/update_profile'
-  # end
-
-  devise_for :admins
+  resources :members
+  devise_for :admins, :controllers => { :registrations => "admin/registrations"}
   devise_for :users ,:controllers => { :registrations => "registrations" }
   
   resources :templates
@@ -12,8 +9,13 @@ Rails.application.routes.draw do
     member do
       get 'remainders'
     end
-    resources :remainders
-    resources :members
+  end
+  
+  get "mass_sms/import_csv" => "members#import_csv"
+  resources :members do 
+    collection do
+      post :import
+    end
   end
   
   namespace :admin do
@@ -24,18 +26,13 @@ Rails.application.routes.draw do
         get :reject
       end 
     end
-
     resources :admin, only: [:update_profile] do 
       put :update_profile, on: :member, as: :update_profile
     end
-    #   resources :groups do
-    #     resources :remainders 
-    #     resources :members
-    #   end
-    # end  
   end
 
   get '/admin' => 'admin/pages#index'
+  get '/home' => 'pages#home'
   root to: 'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

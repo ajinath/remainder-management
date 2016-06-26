@@ -9,8 +9,25 @@
 <body>
   <div class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-      <%= render 'layouts/menu' %>
+      <%= render menu %>
+      <div class="content-wrapper">
+      <% if flash[:notice] %>
+        <div class= "alert alert-success text-center custom-alert">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;
+          </a>
+          <%= flash[:notice] %>
+        </div> 
+      <% end %>
       <%= yield %> 
+      </div>
     </div>
-  </body>
-  </html>
+  </div>
+</body>
+</html>
+
+<style type="text/css">
+.custom-alert {
+  margin: 0;
+  padding: 5px;
+}
+</style>

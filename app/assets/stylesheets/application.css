@@ -5,12 +5,5 @@
  *= require_self
 
  */
-.menu{ margin: 0px; }
-.pad-5{ padding: 5px; }
-.title{ font-weight: bold; text-align: center; color: #2c7578; 
-        padding: 15px; margin: 0px; text-transform: capitalize;}
-.wrapper{ border: 1px solid #ddd; padding: 15px; }
-.icon-pad{ padding: 5px 15px 5px 15px;}
-.danger-bg { background: #E3685F; }
-.info-bg { background: #679AA5; }
+
 

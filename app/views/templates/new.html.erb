@@ -1,5 +1,9 @@
-<h1>New Template</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', templates_path %>
+<div class="box box-success">
+	<div class="box-header">
+		<h3 class="box-title">Create New Template</h3>
+		<%= link_to 'All Templates', templates_path, style: "float: right", class: "btn btn-success btn-sm" %>
+	</div>
+	<div class="box-body no-padding">
+		<%= render 'form' %>
+	</div>
+</div>

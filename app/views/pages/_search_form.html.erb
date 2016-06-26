@@ -1,0 +1,21 @@
+<%= form_tag "#", multipart: true, method: :get do %>
+	<div class="form-group">
+		<div class="col-md-3 col-sm-1 col-xs-0"></div>    
+		<div class="col-md-6 col-sm-6 col-xs-9">
+			<div class="input-group">
+				<div class="input-group-addon">
+			    <i class="fa fa-calendar"></i>
+			  </div>
+			  <input type="text" class="form-control pull-right" id="reservation">
+			</div> 
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-3"> 
+			<%= submit_tag "Search", class: "btn btn-sm btn-success" %> 
+		</div>    
+<% end %>
+
+<script type="text/javascript">
+	$('#reservation').daterangepicker({
+		format: 'DD/MM/YYYY'
+	});
+</script>
