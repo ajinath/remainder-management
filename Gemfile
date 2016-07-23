@@ -22,22 +22,24 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'bootstrap_form'
+# gem 'bootstrap_form'
 gem 'bootstrap-datepicker-rails'
 gem 'momentjs-rails'
-gem 'bootstrap3-datetimepicker-rails'
+gem 'bootstrap-timepicker-rails'
+# gem 'bootstrap3-datetimepicker-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-gem 'jquery-ui-rails'
-gem 'will_paginate'
+# gem 'jquery-ui-rails'
+# gem 'will_paginate'
 gem "pry"
 #client side validation
-gem 'simple_form'
-gem 'client_side_validations'
-gem 'client_side_validations-simple_form'
+# gem 'simple_form'
+# gem 'client_side_validations'
+# gem 'client_side_validations-simple_form'
 gem "font-awesome-rails"
 gem "nested_form"
 gem 'whenever', :require => false
 gem 'rails_12factor', group: :production
+gem 'clickatellsend'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

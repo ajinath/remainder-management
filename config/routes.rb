@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   get '/admin' => 'admin/pages#index'
   get '/home' => 'pages#home'
+  post "/search" => 'pages#search'
+
   root to: 'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

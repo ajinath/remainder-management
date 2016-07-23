@@ -3,6 +3,14 @@ module ApplicationHelper
   	current_admin.present? ? "layouts/admin_menu" : "layouts/user_menu"
   end
 
+  def interpolate_sms_text message
+    message
+  end
+
+  def recurring_date group
+    group.last_send.nil? ? group.start_date + group.interval.days : group.last_send + group.interval.days
+  end
+
   def edit_icon
    raw("<span class ='badge icon-pad info-bg'><i class='fa fa-pencil fa-1x'></i>&nbsp; Edit</span>").html_safe 
   end

@@ -18,4 +18,12 @@ class Group < ActiveRecord::Base
   def option_templates
     user.templates.map {|template| [template.name, template.id] }
   end
+
+  def template
+    Template.find_by(id: template_id)
+  end
+
+  def send_messages
+    
+  end
 end

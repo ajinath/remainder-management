@@ -27,6 +27,8 @@ class TemplatesController < ApplicationController
   # POST /templates
   # POST /templates.json
   def create
+    # binding.pry
+    
     @template = Template.new(template_params)
 
     respond_to do |format|

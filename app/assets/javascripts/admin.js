@@ -20,6 +20,6 @@
 //= require admin/demo
 //= require admin/select2.full.min
 //= require jquery_nested_form
-//= require admin/bootstrap-timepicker.min
 //= require admin/daterangepicker
-
+//= require admin/sms_templates
+//= require bootstrap-timepicker

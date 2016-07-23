@@ -1,0 +1,23 @@
+<table id="groups" class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contact </th>
+      <th> Message </th>
+      <th> Date </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %>
+    	<% group.active_members.each do |member| %>
+	    <tr>
+	      <td><%= member.name %></td>
+	      <td><%= member.contact %></td>
+	      <td><%= interpolate_sms_text group.template.message %></td>
+	      <td><%= recurring_date group %>
+	      <td> </td>
+	    </tr>
+	    <% end %>
+	  <% end %>
+  </tbody>
+</table>
