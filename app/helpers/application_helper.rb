@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def recurring_date group
-    group.last_send.nil? ? group.start_date + group.interval.days : group.last_send + group.interval.days
+    group.renew_date.nil? ? group.start_date + group.interval.days : group.renew_date + group.interval.days
   end
 
   def edit_icon

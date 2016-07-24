@@ -34,8 +34,8 @@ class Group < ActiveRecord::Base
         elapsed_minutes = elapsed_seconds / 60
         member.send_message elapsed_minutes
       end
-      group.update(renew_date: group.renew_date + group.interval.days
+      group.update(renew_date: group.renew_date + group.interval.days)
     end
   end
-  
+
 end
