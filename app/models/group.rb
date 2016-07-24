@@ -23,7 +23,19 @@ class Group < ActiveRecord::Base
     Template.find_by(id: template_id)
   end
 
-  def send_messages
-    
+  def Group.todays_send_messages
+    start_date = DateTime.now.beginning_of_day.in_time_zone
+    end_date = DateTime.now.end_of_day.in_time_zone
+    current_datetime = DateTime.now.in_time_zone
+    groups = Group.where("renew_date between (?) and (?)", start_date, end_date )
+    groups.each do |group|
+      group.active_members.each do |member|
+        elapsed_seconds = (group.renew_date - current_datetime).to_i
+        elapsed_minutes = elapsed_seconds / 60
+        member.send_message elapsed_minutes
+      end
+      group.update(renew_date: group.renew_date + group.interval.days
+    end
   end
+  
 end
