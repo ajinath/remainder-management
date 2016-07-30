@@ -29,6 +29,12 @@ Rails.application.routes.draw do
     resources :admin, only: [:update_profile] do 
       put :update_profile, on: :member, as: :update_profile
     end
+    resources :groups, only: [:index] do 
+      member do
+        get :approve
+        get :reject
+      end 
+    end
   end
 
   get '/admin' => 'admin/pages#index'

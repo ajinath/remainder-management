@@ -1,0 +1,29 @@
+<table id="groups" class="table table-condensed">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th> Start Date </th>
+      <th> Interval </th>
+      <th> Status</th>
+      <th> Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each_with_index do |group, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= group.name.titleize %></td>
+      <td><%= group.start_date %></td>
+      <td><%= group.interval %></td>
+      <td class = "<%=  status_class group.group_status %>">
+        <%= group.group_status.try(:capitalize) %>
+      </td>
+      <td>
+        <%= link_to 'Block', reject_admin_group_path(group), class: "badge bg-red", remote: true %>
+        <%= link_to 'Approve', approve_admin_group_path(group), class: "badge bg-green", remote: true  %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

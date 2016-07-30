@@ -1,7 +1,13 @@
 class Group < ActiveRecord::Base
   belongs_to :user
   
+  default_scope { order('created_at') }
+
   INTERVAL = [30, 60, 90, 120]
+
+  def group_status
+    status ? "approved" : "pending"
+  end
 
   def active_members
     user.members.where('id in (?)', members)

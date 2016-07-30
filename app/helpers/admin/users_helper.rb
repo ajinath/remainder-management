@@ -3,6 +3,8 @@ module Admin::UsersHelper
 		case status
 		when "blocked"
 			"text-danger"
+		when "pending"
+			"text-danger"
 		when "approved"
 			"text-success"
 		end
