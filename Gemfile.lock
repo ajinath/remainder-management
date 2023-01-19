@@ -1,8 +1,8 @@
 GIT
-  remote: git://github.com/rweng/jquery-datatables-rails.git
-  revision: 9eee0a1975b5a22e50bdc73fcca7db7f8a12c143
+  remote: https://github.com/rweng/jquery-datatables-rails.git
+  revision: d486b31b192a2924b1913e080ad23460e6b96d31
   specs:
-    jquery-datatables-rails (3.3.0)
+    jquery-datatables-rails (3.4.0)
       actionpack (>= 3.1)
       jquery-rails
       railties (>= 3.1)
@@ -117,7 +117,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    rack (1.6.4)
+    rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
